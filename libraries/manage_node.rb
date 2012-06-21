@@ -114,13 +114,16 @@ def jenkins_node_manage(args)
 import jenkins.model.*
 import jenkins.slaves.*
 
+import hudson.model.*
+import hudson.slaves.*
+
 app = Jenkins.instance
 env = #{env}
 props = []
 
 def new_ssh_launcher(args) {
   Jenkins.instance.pluginManager.getPlugin("ssh-slaves").classLoader.
-    loadClass("jenkins.plugins.sshslaves.SSHLauncher").
+    loadClass("hudson.plugins.sshslaves.SSHLauncher").
       getConstructor([String, int, String, String, String, String] as Class[]).newInstance(args)
 }
 
