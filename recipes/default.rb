@@ -33,6 +33,7 @@ directory node[:jenkins][:server][:home] do
   recursive true
   owner node[:jenkins][:server][:user]
   group node[:jenkins][:server][:group]
+  retries 5
 end
 
 directory "#{node[:jenkins][:server][:home]}/.ssh" do
