@@ -29,6 +29,8 @@ user node[:jenkins][:server][:user] do
   home node[:jenkins][:server][:home]
 end
 
+#retries added to address open issue in Chef
+# http://tickets.opscode.com/browse/CHEF-1699
 directory node[:jenkins][:server][:home] do
   recursive true
   owner node[:jenkins][:server][:user]
